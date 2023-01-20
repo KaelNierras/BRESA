@@ -1,0 +1,25 @@
+:root {
+	--primary: #4ade80;
+	--grey: #9a8b8b;
+	--dark: #800000;
+	--dark-alt: black;
+	--light: #f9f1f1;
+	--sidebar-width: 300px;
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Fira sans', sans-serif;
+}
+
+body {
+	background: var(--light);
+}
+button {
+	cursor: pointer;
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+}
