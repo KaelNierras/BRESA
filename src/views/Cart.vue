@@ -1,29 +1,29 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
 import DataT from '../Components/Table.vue'
 import ProcessModal from '../components/ProcessModal.vue';
 
 const message = 'There is no item in the Cart!'
-
+// const props = defineProps(['amountPaid'])
 const headerItems = reactive([
   {
-    text: 'TRANSACTION CODE',
+    text: 'ITEM CODE',
     align: 'start',
     filterable: false,
     value: 'tcode'
   },
   { text: 'DATE', value: 'date' },
-  { text: 'ITEM CODE', value: 'code' },
+  { text: 'ITEM NAME', value: 'name' },
   { text: 'QUANTITY/KILO', value: 'quantity' },
   { text: 'PRICE', value: 'price' },
-  { text: 'PRICE', value: 'sold' },
+  { text: 'SOLD', value: 'sold' },
   { text: 'TOTAL', value: 'total' },
 ])
 
 
 
 const tableItems = reactive([
-  {tcode:3413134314, date: '10-20-33', code: 'Item 1',quantity:40, price: 10, sold:10, total: 200},
+  {tcode:3413134314, date: '10-20-33', name: 'Item 1',quantity:40, price: 10, sold:10, total: 200},
 ])
 
 
@@ -31,16 +31,22 @@ const displayModal = () => {
   showModal.value = true
 }
 
+// const eachTotal = computed(() => {
+//   let eachTotal = 0
+//   eachTotal = newQuantity.value * 40
+//   return eachTotal
+// })
+
 const addItem = () =>{
 
 tableItems.push({
   tcode: newItemCode.value,
   date: '01-01-23',
-  code: newItemName.value,
+  name: newItemName.value,
   quantity: newQuantity.value,
   price:40,
   sold: 20,
-  total:400,
+  total:200
 })
 newItemCode.value=" ",
 newItemName.value=" ",
@@ -55,6 +61,21 @@ const cartTotal = computed(() => {
      })
      return total
 })
+
+// const change = computed(() => {
+//      let change = 0
+//      change =   - tableItems.total 
+//      return change
+// })
+
+const remove = () => {
+  newItemName.value=" ",
+  newQuantity.value=" ",
+  newItemCode.value=" ",
+  newItemCode.placeholder="ITEM CODE",
+  newItemName.placeholder="ITEM CODE",
+  newQuantity.placeholder="QUANTITY/KILO"
+}
 
 const newItemCode = ref(null)
 const newItemName = ref(null)
@@ -71,11 +92,11 @@ const showModal = ref(false)
         <DataT :tableItems="tableItems" :headerItems="headerItems" :message="message" />
         <form @submit.prevent ="">
         <div class="details">
-            <input v-model="nameItemCode" placeholder="ITEM CODE" required>
+            <input v-model="newItemCode" placeholder="ITEM CODE" required>
             <input v-model="newItemName" placeholder="ITEM NAME" required>
             <input v-model="newQuantity" placeholder="QUANTITY/KILO" required>
             <div class="buttons">
-              <button>REMOVE</button>
+              <button @click="remove()">REMOVE</button>
               <button type="submit" @click="addItem()">ADD TO CART</button>
             </div>
           </div>
@@ -83,15 +104,13 @@ const showModal = ref(false)
           <div class="info">
           <div class="content"><h3>120</h3><p>Stock</p></div>
           <div class="content"><h3>30</h3><p>Price</p></div>
-          <!-- <h3 class="content">120</h3>
-          <h3 class="content">30</h3> -->
           <button class="dummy"></button>
           <div class="buttons">
               <button class="dummy1"></button>
               <button @click="displayModal()">PROCESS</button>
             </div>
           </div>
-    <ProcessModal v-if="showModal" @click-close="showModal = false" :total="headerItems.total"></ProcessModal>
+    <ProcessModal v-if="showModal" @click-close="showModal = false" :total="cartTotal"></ProcessModal>
     </main>
 </template>
 

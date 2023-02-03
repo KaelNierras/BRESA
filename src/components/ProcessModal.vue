@@ -4,15 +4,16 @@
             <form @submit.prevent="">
                 <input v-model="amountPaid" placeholder="Amount Paid" required>
                 <p class="details">AMOUNT PAID</p>
-                <div class="infos"><h3>{{bill}}</h3> </div>
+                <div class="infos"><h3>{{total}}</h3> </div>
                 <p class="details">BILL</p>
-                <div class="infos"><h3>{{amountPaid}}</h3> </div>
+                <div class="infos"><h3>400</h3> </div>
                 <p class="details">CHANGE</p>
                 <button type="submit" @click="emit('click-close')">PROCESS</button>
             </form> 
             <a href="#" class="modal__close" @click="emit('click-close')">&times;</a>
         </div>
     </div>
+  
     </template>
     
     <style scoped lang="scss">
@@ -108,7 +109,6 @@
     </style>
     
     <script setup>
-    const props = defineProps(['total'])
-          
+    const props = defineProps(['total','change'])
     const emit = defineEmits(['click-close'])
     </script>
