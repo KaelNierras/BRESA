@@ -105,6 +105,13 @@ watch(
   }
 )
 
+watch(() => props.data, (_, newValue) => {
+  const newData = searchBox.value
+  const data = findInValues(props.data, newData)
+
+  updateRowsPerPage(rowsPerPage.value, data, newData, true)
+}, { deep: true });
+
 const changePage = (page = currentPage.value) => {
   currentPage.value = page
 
@@ -115,9 +122,7 @@ const changePage = (page = currentPage.value) => {
 }
 
 onBeforeMount(() => {
-  // if (props?.isSearchable) {
-  //   searchableFields.value = props.headers.map(item => item.value)
-  // }
+
 
   if (!Array.isArray(footer.rowsPerPage)) {
     footer.rowsPerPage = []

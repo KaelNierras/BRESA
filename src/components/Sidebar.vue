@@ -41,7 +41,7 @@
         <div class="flex"></div>
 
         <div class="menu">
-            <router-link class="button" >
+            <router-link class="button" to="./">
                 <span class="material-icons">logout</span>
                 <span class="text">Logout</span>
             </router-link>

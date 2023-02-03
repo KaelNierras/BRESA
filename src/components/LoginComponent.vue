@@ -34,11 +34,11 @@ export default {
       <br>
       <h2 id="login">LOGIN</h2>
       <br>
-      <span class="text">Email</span>
-      <input type="username" v-model="formData.username" required>
+      <span class="text">User name</span>
+      <input type="username" v-model="formData.username" placeholder="Username" required>
       <br>
       <span class="text">Password</span>
-      <input type="password" v-model="formData.password" required>
+      <input type="password" v-model="formData.password" placeholder="Password" required>
       <br>
       <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
       <br>
