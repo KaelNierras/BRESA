@@ -13,8 +13,9 @@ const headerItems = reactive([
     value: 'tcode'
   },
   { text: 'DATE', value: 'date' },
-  { text: 'ITEM CODE', value: 'name' },
-  { text: 'QUANTITY/KILO', value: 'price' },
+  { text: 'ITEM CODE', value: 'code' },
+  { text: 'QUANTITY/KILO', value: 'quantity' },
+  { text: 'PRICE', value: 'price' },
   { text: 'PRICE', value: 'sold' },
   { text: 'TOTAL', value: 'total' },
 ])
@@ -22,7 +23,7 @@ const headerItems = reactive([
 
 
 const tableItems = reactive([
-  {tcode:3413134314, date: '10-20-33', name: 'Item 1', price: 10, sold:10, total: 200},
+  {tcode:3413134314, date: '10-20-33', code: 'Item 1',quantity:40, price: 10, sold:10, total: 200},
 ])
 
 
@@ -34,12 +35,26 @@ const addItem = () =>{
 
 tableItems.push({
   tcode: newItemCode.value,
-  name: newItemName.value,
-  price: newQuantity.value,
+  date: '01-01-23',
+  code: newItemName.value,
+  quantity: newQuantity.value,
+  price:40,
+  sold: 20,
+  total:400,
 })
-
+newItemCode.value=" ",
+newItemName.value=" ",
+newQuantity.value=" ",
 showModal.value = false
 }
+
+const cartTotal = computed(() => {
+     let total = 0
+     tableItems?.forEach((item) => {
+        total += item.total
+     })
+     return total
+})
 
 const newItemCode = ref(null)
 const newItemName = ref(null)
@@ -76,7 +91,7 @@ const showModal = ref(false)
               <button @click="displayModal()">PROCESS</button>
             </div>
           </div>
-    <ProcessModal v-if="showModal" @click-close="showModal = false"></ProcessModal>
+    <ProcessModal v-if="showModal" @click-close="showModal = false" :total="headerItems.total"></ProcessModal>
     </main>
 </template>
 

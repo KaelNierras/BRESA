@@ -1,12 +1,14 @@
 <template>
     <div id="demo-modal" class="modal">
         <div class="modal__content">
-            <form @submit.prevent="emit('add-item', {code:8482489798, name: newItemName,  price: newItemPrice, stock:50, } )">
+            <form @submit.prevent="">
                 <input v-model="amountPaid" placeholder="Amount Paid" required>
                 <p class="details">AMOUNT PAID</p>
-                <div class="infos"><h3>50</h3> </div>
+                <div class="infos"><h3>{{bill}}</h3> </div>
+                <p class="details">BILL</p>
+                <div class="infos"><h3>{{amountPaid}}</h3> </div>
                 <p class="details">CHANGE</p>
-                <button type="submit">Add</button>
+                <button type="submit" @click="emit('click-close')">PROCESS</button>
             </form> 
             <a href="#" class="modal__close" @click="emit('click-close')">&times;</a>
         </div>
@@ -106,5 +108,7 @@
     </style>
     
     <script setup>
+    const props = defineProps(['total'])
+          
     const emit = defineEmits(['click-close'])
     </script>

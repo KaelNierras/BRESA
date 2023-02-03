@@ -19,11 +19,14 @@
 
 <style scoped lang="scss">
 .details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     margin-top: 3px;
     margin-bottom: 10px;
     font-size: 11px;
     color: white;
-    margin-left: 100px;
 }
 
 .info{
@@ -81,7 +84,6 @@ form {
   transition: all 0.4s;
 }
 
-
 .modal__content {  
   border-radius: 10px;
   position: relative;
@@ -111,6 +113,4 @@ form {
 
 <script setup>
 const emit = defineEmits(['click-close','add-item'])
-const newItemName = ref(null)
-const newItemPrice = ref(null)
 </script>
