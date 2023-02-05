@@ -25,7 +25,7 @@ const tableItems = [
     name: 'Hello',
     price: 453,
     sold: 24,
-    total: 4.2,
+    total: 6,
   },
   {
     date: '01-10-23',
@@ -33,7 +33,7 @@ const tableItems = [
     name: 'Pork Belly',
     price: 453,
     sold: 37,
-    total: 4.3,
+    total: 4,
   },
   {
     date: '01-10-23',
@@ -41,7 +41,7 @@ const tableItems = [
     name: 'Ribs',
     price: 16.0,
     sold: 23,
-    total: 6.0,
+    total: 6,
   },
   {
     date: '01-10-23',
@@ -49,7 +49,7 @@ const tableItems = [
     name: 'Bones',
     price: 3.7,
     sold: 67,
-    total: 4.3,
+    total: 15,
   },
   {
     date: '01-10-23',
@@ -57,7 +57,7 @@ const tableItems = [
     name: 'Skin',
     price: 16.0,
     sold: 49,
-    total: 3.9,
+    total: 11,
   },
   {
     date: '01-10-23',
@@ -65,7 +65,7 @@ const tableItems = [
     name: 'Pig Liver',
     price: 0.0,
     sold: 94,
-    total: 0.0,
+    total: 14,
   },
   {
     date: '01-10-23',
@@ -73,7 +73,7 @@ const tableItems = [
     name: 'Skin',
     price: 12,
     sold: 98,
-    total: 0,
+    total: 10,
   },
   {
     date: '01-10-23',
@@ -81,7 +81,7 @@ const tableItems = [
     name: 'Liver',
     price: 3.2,
     sold: 87,
-    total: 6.5,
+    total: 6,
   },
   {
     date: '01-10-23',
@@ -89,7 +89,7 @@ const tableItems = [
     name: 'Fats',
     price: 25.0,
     sold: 51,
-    total: 4.9,
+    total: 9,
   },
   {
     date: '01-10-23',
@@ -105,7 +105,8 @@ const tableItems = [
     name: 'Ribs',
     price: 25.0,
     sold: 51,
-    total: 4.9,
+    total: 7
+    
   }
 ]
 

@@ -20,8 +20,10 @@ const headerItems = reactive([
 const showModal = ref(false)
 
 const tableItems = reactive([
-    {code:3413134314, name: 'Item 1', price: 10, stock:10},
-    {code:1232134314, name: 'Item 2', price: 20, stock:20},
+    {code:3413134314, name: 'Pork', price: 10, stock:10},
+    {code:1232134314, name: 'Ribs', price: 20, stock:20},
+
+    
 ])
 
 const displayModal = () => {

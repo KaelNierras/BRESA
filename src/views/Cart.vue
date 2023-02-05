@@ -16,26 +16,19 @@ const headerItems = reactive([
   { text: 'ITEM NAME', value: 'name' },
   { text: 'QUANTITY/KILO', value: 'quantity' },
   { text: 'PRICE', value: 'price' },
-  { text: 'SOLD', value: 'sold' },
   { text: 'TOTAL', value: 'total' },
 ])
 
 
 
 const tableItems = reactive([
-  {tcode:3413134314, date: '10-20-33', name: 'Item 1',quantity:40, price: 10, sold:10, total: 200},
+  {tcode:3413134314, date: '10-20-23', name: 'Item 1',quantity:40, price: 10, total: 400},
 ])
 
 
 const displayModal = () => {
   showModal.value = true
 }
-
-// const eachTotal = computed(() => {
-//   let eachTotal = 0
-//   eachTotal = newQuantity.value * 40
-//   return eachTotal
-// })
 
 const addItem = () =>{
 
@@ -44,9 +37,8 @@ tableItems.push({
   date: '01-01-23',
   name: newItemName.value,
   quantity: newQuantity.value,
-  price:40,
-  sold: 20,
-  total:200
+  price:30,
+  total:300
 })
 newItemCode.value=" ",
 newItemName.value=" ",
